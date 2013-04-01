@@ -2,9 +2,11 @@ Diploma::Application.routes.draw do
   
   get "users/add"
   get "users" => "users#showall"
-  post "users/create"
-  delete "users/:id/delete" => "users#delete"
-  get "/users/:id/show" => "users#show"
+  get 'users/:id/edit' => 'users#edit'
+  get "/users/:id" => "users#show", :as => :user
+  post "users" => 'users#create'
+  delete "users/:id" => "users#delete"
+  put "users/:id" => 'users#update'
 
   get "index/index"
   get "/index/(index)/(:id)" => "index#index"

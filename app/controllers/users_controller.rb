@@ -12,7 +12,11 @@ class UsersController < ApplicationController
     userinfo = params[:user]
     userinfo[:password] = Digest::MD5.hexdigest(userinfo[:password])
     @user = User.new userinfo
-    @message = @user.save
+    if @user.save
+      redirect_to @user, notice: 'User was successfully created.'
+    else
+      render action: "add"
+    end
   end
 
   def delete
@@ -23,5 +27,18 @@ class UsersController < ApplicationController
 
   def showall
     @users = User.all
+  end
+
+  def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_to @user, notice: 'User was successfully updated.' 
+    else
+      render action: "edit"
+    end
   end
 end
