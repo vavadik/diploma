@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Diploma</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<div class="container">
-	<div class="row">
-		<div class="span3">
-	    	Left side
-	    </div>
-	    <div class="span9">
-			<%= yield %>
+	<head>
+		<title>Diploma</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<%= render :partial => '/layouts/navbar', :object => @nav_current %>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+			    	Left side
+			    </div>
+			    <div class="span9">
+					<%= yield %>
+				</div>
+			</div>
 		</div>
-	</div>
-	<br/><%= link_to 'Back', :root %>
-</div>
-</body>
+	</body>
 </html>
