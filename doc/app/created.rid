@@ -1,0 +1,9 @@
+Mon, 01 Apr 2013 14:35:50 +0300
+doc/README_FOR_APP	Mon, 01 Apr 2013 11:10:33 +0300
+app/controllers/application_controller.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/controllers/index_controller.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/controllers/users_controller.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/helpers/application_helper.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/helpers/index_helper.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/helpers/users_helper.rb	Mon, 01 Apr 2013 11:10:33 +0300
+app/models/user.rb	Mon, 01 Apr 2013 11:10:33 +0300

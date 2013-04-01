@@ -1,16 +1,26 @@
-<%= form_for(@user) do |f| %>
-<% if @user.errors.any? %>
-  <div class="span12 text-error">
-    <p><%= pluralize(@user.errors.count, "error") %>:</p>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>	
-  <%= f.text_field :name, placeholder: 'Name' %>
-  <%= f.text_field :email, placeholder: 'Email' %>
-  <%= f.password_field :password, placeholder: 'Password' %>
-  <%= f.submit :class => 'btn' %>
+<%= form_for @user, :url => { :controller => :users, :action => :create }, :html => {:class => 'form-horizontal span6'} do |f| %>
+	<div class="control-group">
+	    <label class="control-label" for="inputName">Name</label>
+	    <div class="controls">
+	    	<%= f.text_field :name, placeholder: 'Name', type: 'text', id: 'inputName' %>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label" for="inputMail">E-mail</label>
+	    <div class="controls">
+	    	<%= f.text_field :email, placeholder: 'test@example.com', type: 'email', id: 'inputMail' %>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label" for="inputPass">Password</label>
+	    <div class="controls">
+	    	<%= f.text_field :password, placeholder: 'Password', type: 'password', id: 'inputPass' %>
+	    </div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit :class => 'btn btn-primary' %>
+  			<%= link_to 'Cancel', users_path, :class => 'btn' %>
+		</div>
+	</div>
 <% end %>
