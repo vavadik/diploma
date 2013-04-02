@@ -3,6 +3,7 @@
 		<tr>
 		    <th>Name</th>
 		    <th>Email</th>
+            <th>Edit</th>
 		</tr>
     </thead>
     <tbody>
@@ -10,25 +11,36 @@
     	<tr class='userInfo' user="<%= user.id %>">
     		<td><%= user.name %></td>
     		<td><%= user.email %></td>
+            <td clas="text-right"><%= link_to "edit", {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %></td>
     	</tr>
     	<% end %>
     </tbody>
 </table>
 <%= link_to 'Add user', :users_add, :class => 'btn btn-success' %>
 <div id='userModal' class="modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="modalHeader">Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <dl class="dl-horizontal">
-      <dt>Pass hash</dt>
-      <dd><p id="userPassword">One fine body…</p></dd>
-      <dt>Mail</dt>
-      <dd><p id="userMail">One fine body…</p></dd>
-    </dl>
-  </div>
-  <div class="modal-footer">
-    <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="modalHeader">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <dl class="dl-horizontal">
+            <dt>Pass hash</dt>
+            <dd><p id="userPassword">One fine body…</p></dd>
+            <dt>Mail</dt>
+            <dd><p id="userMail">One fine body…</p></dd>
+        </dl>
+    </div>
+    <div class="modal-footer">
+        <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<div id="addUserModal" class="modal hide fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="modalHeader">Add new user</h3>
+    </div>
+    <div class="modal-body">
+
+    </div>
 </div>
