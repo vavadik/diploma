@@ -1,7 +1,7 @@
 <div class="row-fluid">
 	<div class="navbar">
 	    <div class="navbar-inner navbar-static-top">
-			<%= link_to 'Home', :root, :class => 'brand' %>
+			<%= link_to 'Home', :root, :class => 'brand offset1' %>
 			<ul class = 'nav'>
 				<% navigation_bar(navbar).each do |link| %>
 					<li class="<%= link[:class] %>"><%= link_to link[:text], link[:link] %></li>

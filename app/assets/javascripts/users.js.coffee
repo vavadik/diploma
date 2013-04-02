@@ -10,4 +10,11 @@ $(document).ready -> (
 			$("#userModal").modal('show')
 		));
 	)
+	$("#addUserButton").click -> (
+		$("#addUserModal").modal('show')
+		$("#cancelButton").click -> (
+			$("#addUserModal").modal('hide')
+			return false;
+		)
+	)
 )

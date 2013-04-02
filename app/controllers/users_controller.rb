@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     userinfo[:password] = Digest::MD5.hexdigest(userinfo[:password])
     @user = User.new userinfo
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to :users, notice: 'User was successfully created.'
     else
       render action: "add"
     end
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def showall
     @users = User.all
+    @user = User.new # For create user modal
   end
 
   def edit
