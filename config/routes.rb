@@ -10,6 +10,7 @@ Diploma::Application.routes.draw do
 
   get "index/index"
   get "/index/(index)/(:id)" => "index#index"
+  
   root :controller => 'index', :action => 'index'
 
   # The priority is based upon order of creation:
