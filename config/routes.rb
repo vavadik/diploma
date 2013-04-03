@@ -1,10 +1,15 @@
 Diploma::Application.routes.draw do
   
+  get 'login' => "auth#login"
+  get 'logout' => "auth#logout"
+  get 'register' => "auth#register"
+  post 'login' => 'sessions#create'
+
   get "users/add"
   get "users" => "users#showall"
   get 'users/:id/edit' => 'users#edit'
   delete "users/:id" => "users#delete"
-  get "/users/:id" => "users#show"
+  get "/users/:id" => "users#show", :as => :user
   post "users" => 'users#create'
   put "users/:id" => 'users#update'
 

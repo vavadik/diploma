@@ -19,10 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    require 'digest/md5'
-    userinfo = params[:user]
-    userinfo[:password] = Digest::MD5.hexdigest(userinfo[:password])
-    @user = User.new userinfo
+    @user = User.new params[:user]
     if @user.save
       redirect_to :users, notice: 'User was successfully created.'
     else

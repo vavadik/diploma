@@ -6,7 +6,7 @@ $(document).ready -> (
 		$.getJSON("/users/" + $(this).attr('user'), (data) -> (
 			$("#userModal #modalHeader").html(data.name)
 			$("#userModal #userMail").html(data.email)
-			$("#userModal #userPassword").html(data.password)
+			$("#userModal #userPassword").html(data.password_digest)
 			$("#userModal").modal('show')
 		));
 	)

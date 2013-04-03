@@ -25,7 +25,13 @@
 	<div class="control-group">
 	    <label class="control-label" for="inputPass">Password</label>
 	    <div class="controls">
-	    	<%= f.text_field :password, placeholder: 'Password', type: 'password', id: 'inputPass' %>
+	    	<%= f.password_field :password, placeholder: 'Password', type: 'password', id: 'inputPass' %>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label" for="inputPass">Confirm</label>
+	    <div class="controls">
+	    	<%= f.password_field :password_confirmation, placeholder: 'Confirm', type: 'password', id: 'inputPass' %>
 	    </div>
 	</div>
 	<div class="control-group">
