@@ -6,5 +6,6 @@ class AuthController < ApplicationController
   end
 
   def register
+  	@user = User.new
   end
 end

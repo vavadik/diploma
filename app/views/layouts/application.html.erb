@@ -17,5 +17,8 @@
 				<%= yield %>
 			</div>
 		</div>
+		<% if notice %>
+			<div class='notifications top-right' text="<%= notice %>"></div>
+		<% end %>
 	</body>
 </html>

@@ -1,0 +1,6 @@
+<%= form_tag :login, :class => 'form-inline' do %>
+	<%= text_field_tag :email, nil, :class => 'input-small', :placeholder => 'E-mail' %>
+	<%= password_field_tag :password, nil, :class => 'input-small', :placeholder => 'Password' %>
+	<%= button_tag 'Login', :class => 'btn btn-primary' %>
+	<%= link_to 'Sign up', :register, :class => 'btn btn-success' %>
+<% end %>

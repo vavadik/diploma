@@ -7,6 +7,15 @@
 					<li class="<%= link[:class] %>"><%= link_to link[:text], link[:link] %></li>
 				<% end %>
 			</ul>
+			<div class='span3 pull-right logininfo'>
+				<% if current_user %>
+					<p class='text-info'>
+						Logged in as <%= current_user.name %> <%= link_to :logout, :logout, :class => 'btn btn-small btn-inverse' %>
+					</p>
+				<% else %>
+					<%= render 'layouts/form_login' %>
+				<% end %>
+			</div>
 	    </div>
 	</div>
 </div>

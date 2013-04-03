@@ -36,8 +36,8 @@
 	</div>
 	<div class="control-group">
 		<div class="controls">
-			<%= f.submit :class => 'btn btn-primary' %>
-  			<%= link_to 'Cancel', users_path, :class => 'btn', :id => 'cancelButton' %>
+			<%= f.submit :class => 'btn btn-primary', value: 'Register' %>
+  			<%= link_to 'Cancel', :back, :class => 'btn', :id => 'cancelButton' %>
 		</div>
 	</div>
 <% end %>

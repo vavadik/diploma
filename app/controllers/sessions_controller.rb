@@ -3,14 +3,14 @@ class SessionsController < ApplicationController
 	  user = User.find_by_email(params[:email])
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
-	    redirect_to :root, :notice => "Logged in as #{user.name}"
+	    redirect_to :back, :notice => "Logged in as #{user.name}(#{user.role})"
 	  else
-	    redirect_to :root, :notice => "Login failed!"
+	    redirect_to :back, :notice => "Login failed!"
 	  end
 	end
 
 	def destroy
 	  session[:user_id] = nil
-	  redirect_to :root, :notice => "Logged out!"
+	  redirect_to :back, :notice => "Logged out!"
 	end
 end

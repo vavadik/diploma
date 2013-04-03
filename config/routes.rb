@@ -1,7 +1,7 @@
 Diploma::Application.routes.draw do
   
   get 'login' => "auth#login"
-  get 'logout' => "auth#logout"
+  get 'logout' => "sessions#destroy"
   get 'register' => "auth#register"
   post 'login' => 'sessions#create'
 

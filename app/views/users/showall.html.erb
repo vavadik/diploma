@@ -3,6 +3,7 @@
 		<tr>
 		    <th>Name</th>
 		    <th>Email</th>
+            <th>Prev</th>
             <th class="span1">Controls</th>
 		</tr>
     </thead>
@@ -11,6 +12,7 @@
     	<tr class='userInfo' user="<%= user.id %>">
     		<td><%= user.name %></td>
     		<td><%= user.email %></td>
+            <td><%= user.prev %></td>
             <td>
                 <%= link_to raw('<i class="icon-edit"></i>'), {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %>
                 <%= link_to raw('<i class="icon-remove-circle"></i>'), user, :method => :delete, :confirm => "Sure?", :class => 'btn btn-mini' %>

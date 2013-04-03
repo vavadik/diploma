@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new params[:user]
     if @user.save
-      redirect_to :users, notice: 'User was successfully created.'
+      redirect_to :users, notice: "User #{@user.name} was successfully created."
     else
       render action: "add"
     end
@@ -29,8 +29,9 @@ class UsersController < ApplicationController
 
   def delete
     @user = User.find params[:id]
+    name = @user.name
     @user.destroy
-    redirect_to :users
+    redirect_to :users, notice: "User #{name} deleted."
   end
 
   def showall
