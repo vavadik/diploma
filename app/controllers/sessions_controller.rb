@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		layout nil
 	  session[:user_id] = nil
 	  redirect_to :back, :notice => "Logged out!"
 	end
