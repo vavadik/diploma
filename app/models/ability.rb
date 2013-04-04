@@ -8,6 +8,8 @@ class Ability
     elsif user.moderator?
       can :update, User
       cannot :prev, User
+    elsif user.guest?
+      
     else
       can :read, User
     end

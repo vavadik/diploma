@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def create
+		redirect_to :root, notice: 'You are already logged in!' if current_user
 	  user = User.find_by_email(params[:email])
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
@@ -10,8 +11,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		layout nil
 	  session[:user_id] = nil
-	  redirect_to :back, :notice => "Logged out!"
+	  redirect_to :root, :notice => "Logged out!"
 	end
 end

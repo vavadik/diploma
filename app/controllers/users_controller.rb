@@ -15,10 +15,16 @@ class UsersController < ApplicationController
   end
 
   def add
+    if cannot? :create, User
+      redirect_to :root, notice: 'Permission denied!'
+    end
   	@user = User.new
   end
 
   def create
+    if cannot? :create, User
+      redirect_to :root, notice: 'Permission denied!'
+    end
     @user = User.new params[:user]
     @user.prev = 1 if @user.prev == 0
     if @user.save

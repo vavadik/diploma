@@ -2,12 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready -> (
-	$(".userInfo").click -> (
+	$(".userInfo").click (e) -> (
 		$.getJSON("/users/" + $(this).attr('user'), (data) -> (
-			$("#userModal #modalHeader").html(data.name)
-			$("#userModal #userMail").html(data.email)
-			$("#userModal #userPassword").html(data.password_digest)
-			$("#userModal").modal('show')
+			if $(e.target).prop('tagName') != 'A' && $(e.target).prop('tagName') != 'I'
+				$("#userModal #modalHeader").html(data.name)
+				$("#userModal #userMail").html(data.email)
+				$("#userModal #userPassword").html(data.password_digest)
+				$("#userModal").modal('show')
 		));
 	)
 	$("#addUserButton").click -> (
