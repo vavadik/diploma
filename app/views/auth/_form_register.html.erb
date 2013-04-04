@@ -22,7 +22,6 @@
 	    	<%= f.text_field :email, placeholder: 'test@example.com', type: 'email', id: 'inputMail' %>
 	    </div>
 	</div>
-	<% if @user.id == current_user.id %>
 	<div class="control-group">
 	    <label class="control-label" for="inputPass">Password</label>
 	    <div class="controls">
@@ -35,18 +34,9 @@
 	    	<%= f.password_field :password_confirmation, placeholder: 'Confirm', type: 'password', id: 'confirmPass' %>
 	    </div>
 	</div>
-	<% end %>
-	<% if can? :prev, User %>
-		<div class="control-group">
-		    <label class="control-label" for="selectPrev">Role</label>
-		    <div class="controls">
-		    	<%= f.select :prev, User.roles, id: 'confirmPass' %>
-		    </div>
-		</div>
-	<% end %>
 	<div class="control-group">
 		<div class="controls">
-			<%= f.submit :class => 'btn btn-primary', value: 'Update' %>
+			<%= f.submit :class => 'btn btn-primary', value: 'Register' %>
   			<%= link_to 'Cancel', :users, :class => 'btn', :id => 'cancelButton' %>
 		</div>
 	</div>

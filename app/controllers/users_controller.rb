@@ -16,13 +16,13 @@ class UsersController < ApplicationController
 
   def add
   	@user = User.new
-    notice = "Role: #{@user.role}, Prev: #{@user.prev}"
   end
 
   def create
     @user = User.new params[:user]
+    @user.prev = 1 if @user.prev == 0
     if @user.save
-      redirect_to :users, notice: "User #{@user.name} was successfully created."
+      redirect_to :users, notice: "User #{@user.name} registered!"
     else
       render action: "add"
     end
@@ -41,6 +41,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if cannot? :update, User
+      redirect_to(:users, notice: 'Permission denied!')
+      return
+    end
     @user = User.find params[:id]
   end
 
