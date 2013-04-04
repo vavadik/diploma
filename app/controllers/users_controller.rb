@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def add
   	@user = User.new
+    notice = "Role: #{@user.role}, Prev: #{@user.prev}"
   end
 
   def create
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    if cannot? :update, User
+      redirect_to(:users, notice: 'Permission denied!')
+      return
+    end
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       redirect_to :user, notice: 'User was successfully updated.' 

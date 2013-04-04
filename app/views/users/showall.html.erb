@@ -3,8 +3,10 @@
 		<tr>
 		    <th>Name</th>
 		    <th>Email</th>
-            <th>Prev</th>
-            <th class="span1">Controls</th>
+            <th>Role</th>
+            <% if can?(:update, User) ||(can? :destroy, User) %>
+                <th class="span1">Controls</th>
+            <% end %>
 		</tr>
     </thead>
     <tbody>
@@ -12,11 +14,15 @@
     	<tr class='userInfo' user="<%= user.id %>">
     		<td><%= user.name %></td>
     		<td><%= user.email %></td>
-            <td><%= user.prev %></td>
-            <td>
-                <%= link_to raw('<i class="icon-edit"></i>'), {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %>
-                <%= link_to raw('<i class="icon-remove-circle"></i>'), user, :method => :delete, :confirm => "Sure?", :class => 'btn btn-mini' %>
-            </td>
+            <td><%= user.role %></td>
+            <% if can?(:update, User) || can?(:destroy, User) %>
+                <td>
+                    <%= link_to raw('<i class="icon-edit"></i>'), {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %>
+                    <% if can?(:destroy, User) %>
+                        <%= link_to raw('<i class="icon-remove-circle"></i>'), user, :method => :delete, :confirm => "Sure?", :class => 'btn btn-mini' %>
+                    <% end %>
+                </td>
+            <% end %>
     	</tr>
     	<% end %>
     </tbody>
