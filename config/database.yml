@@ -34,9 +34,9 @@ production:
   encoding: utf8
   reconnect: false
   database: diploma
-  host: $OPENSHIFT_MYSQL_DB_HOST
-  port: $OPENSHIFT_MYSQL_DB_PORT
-  username: admin2BNcznY
-  password: Ds3Tl2dWDp9j
+  host: <%= ENV['OPENSHIFT_MYSQL_DB_HOST'] %>
+  port: <%= ENV['OPENSHIFT_MYSQL_DB_PORT'] %>
+  username: adminMtY4VDR
+  password: le_CPrpkYuee
   pool: 5
   timeout: 5000
