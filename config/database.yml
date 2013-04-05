@@ -30,7 +30,13 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: diploma
+  host: $OPENSHIFT_MYSQL_DB_HOST
+  port: $OPENSHIFT_MYSQL_DB_PORT
+  username: admin2BNcznY
+  password: Ds3Tl2dWDp9j
   pool: 5
   timeout: 5000
