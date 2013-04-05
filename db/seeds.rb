@@ -21,7 +21,7 @@ User.create [
   {
     name: 'User',
     email: 'user@mail.ru',
-    password: 'admin',
+    password: 'user',
     prev: 1,
   }
 ]

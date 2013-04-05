@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_filter :init
-
   def init
     @nav_current = :users
   end
@@ -37,6 +35,10 @@ class UsersController < ApplicationController
   end
 
   def delete
+    if cannot? :destroy, User
+      redirect_to :back, notice: 'You can\'t delete users!'
+      return
+    end
     @user = User.find params[:id]
     name = @user.name
     @user.destroy

@@ -7,7 +7,6 @@ class Ability
       can :manage, :all
     elsif user.moderator?
       can :update, User
-      cannot :prev, User
     elsif user.guest?
       
     else

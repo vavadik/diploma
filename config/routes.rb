@@ -1,5 +1,10 @@
 Diploma::Application.routes.draw do
   
+  get 'news' => 'news#showall'
+  get 'news/add'
+  get 'news/:id/show' => 'news#show'
+  get 'news/:id/edit' => 'news#edit'
+
   get 'login' => "auth#login"
   get 'logout' => "sessions#destroy"
   get 'register' => "auth#register"
@@ -14,7 +19,6 @@ Diploma::Application.routes.draw do
   put "users/:id" => 'users#update'
 
   get "index/index"
-  get "/index/(index)/(:id)" => "index#index"
   
   root :controller => 'index', :action => 'index'
 

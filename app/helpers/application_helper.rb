@@ -2,8 +2,13 @@ module ApplicationHelper
 	def navigation_bar(current = nil)
 		[
 			{
+				text: 'News',
+				link: :news,
+				class: current == :news ? 'active' : ''
+			},
+			{
 				text: 'Users',
-				link: users_path,
+				link: :users,
 				class: current == :users ? 'active' : ''
 			},
 		]
