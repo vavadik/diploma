@@ -4,6 +4,7 @@ Diploma::Application.routes.draw do
   get 'news/add'
   get 'news/:id/show' => 'news#show'
   get 'news/:id/edit' => 'news#edit'
+  post 'news' => 'news#create'
 
   get 'login' => "auth#login"
   get 'logout' => "sessions#destroy"

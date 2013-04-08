@@ -1,0 +1,36 @@
+<%= form_for @news, url: :news, :html => {:class => 'form-horizontal'} do |f| %>
+	<% if @news.errors.any? %>
+	    <div id="error_explanation">
+	    	<h4 class="text-error"><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h4>
+	      	<ul class="text-error">
+	      		<% @news.errors.full_messages.each do |msg| %>
+	        		<li><%= msg %></li>
+	      		<% end %>
+	    	</ul>
+	    </div>
+	<% end %>
+	<div class="control-group">
+	    <label class="control-label" for="inputTitle">Title</label>
+	    <div class="controls">
+	    	<%= f.text_field :title, placeholder: 'Title', type: 'text', id: 'inputTitle' %>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label" for="inputBody">Announce</label>
+	    <div class="controls">
+	    	<%= f.text_area :body, placeholder: 'Announce text', id: 'inputBody', rows: 10, class: 'input-xxlarge' %>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label" for="selectPrev">Can be viewed by:</label>
+	    <div class="controls">
+	    	<%= f.select :prev, Announce.roles, id: 'selectPrev' %>
+	    </div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit :class => 'btn btn-primary', value: 'Post' %>
+  			<%= link_to 'Cancel', :news, :class => 'btn', :id => 'cancelButton' %>
+		</div>
+	</div>
+<% end %>

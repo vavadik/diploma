@@ -1,2 +1,9 @@
-<h1>News#showall</h1>
-<p>Find me in app/views/news/showall.html.erb</p>
+<% @news.each do |announce| %>
+	<% next if cannot? :read, announce %>
+	Title: <%= announce.title %><br/>
+	Body: <%= announce.body %><br/>
+	Posted by: <%= announce.user.name %><br/>
+	Prev: <%= announce.prev %><br/>
+	<br/>
+<% end %>
+<%= link_to 'Add', :news_add %>

@@ -7,10 +7,26 @@ class Ability
       can :manage, :all
     elsif user.moderator?
       can :update, User
-    elsif user.guest?
-      
-    else
+
+      can :create, Announce
+
+      can :read, Announce do |n|
+        user.prev >= n.prev
+      end
+
+      can :manage, Announce do |n|
+        user.prev >= n.user.prev
+      end
+    elsif user.user?
       can :read, User
+      
+      can :read, Announce do |n|
+        user.prev >= n.prev
+      end
+    else
+      can :read, Announce do |n|
+        user.prev >= n.prev
+      end
     end
   end
 end
