@@ -1,9 +1,9 @@
+<%= link_to 'Add', :news_add, class: 'btn btn-success' if can? :create, Announce %>
 <% @news.each do |announce| %>
 	<% next if cannot? :read, announce %>
-	Title: <%= announce.title %><br/>
-	Body: <%= announce.body %><br/>
-	Posted by: <%= announce.user.name %><br/>
-	Prev: <%= announce.prev %><br/>
-	<br/>
+	<h4>Title: <%= announce.title %></h4>
+	<p>Body: <%= announce.body %></p>
+	Posted by: <%= announce.user.name %> <br>
+	For group: <%= announce.role %> <br>
+	At: <%= announce.created_at.localtime %>
 <% end %>
-<%= link_to 'Add', :news_add %>

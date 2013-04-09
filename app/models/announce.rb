@@ -11,4 +11,17 @@ class Announce < ActiveRecord::Base
       'Admin' => 3,
     }
   end
+
+  def role
+    case self.prev
+      when 1
+        'User'
+      when 2
+        'Moderator'
+      when 3
+        'Admin'
+      else
+        'Guest'
+    end
+  end
 end

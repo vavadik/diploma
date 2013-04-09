@@ -15,7 +15,7 @@ class Ability
       end
 
       can :manage, Announce do |n|
-        user.prev >= n.user.prev
+        user == n.user
       end
     elsif user.user?
       can :read, User

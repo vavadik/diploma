@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   end
 
   def showall
-    @news = Announce.all
+    @news = Announce.all order: 'created_at DESC'
   end
 
   def add
