@@ -1,5 +1,7 @@
 Diploma::Application.routes.draw do
   
+  get "gallery/showall"
+
   get 'news' => 'news#showall'
   get 'news/add'
   get 'news/:id/show' => 'news#show'

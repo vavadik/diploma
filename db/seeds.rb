@@ -25,3 +25,12 @@ User.create [
     prev: 1,
   }
 ]
+
+Mediatype.create [
+  {
+    name: 'Image'
+  },
+  {
+    name: 'Video'
+  },
+]
