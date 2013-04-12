@@ -1,6 +1,8 @@
 Diploma::Application.routes.draw do
   
-  get "gallery/showall"
+  get "gallery" => 'gallery#showall'
+  post 'gallery' => 'gallery#create'
+  get 'gallery/add'
 
   get 'news' => 'news#showall'
   get 'news/add'

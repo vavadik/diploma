@@ -1,2 +1,16 @@
-<h1>Gallery#showall</h1>
-<p>Find me in app/views/gallery/showall.html.erb</p>
+<% @media.each do |m| %>
+	<div class="imgprev pull-left"><img src="<%= m.data %>" alt="data" name="<%= m.name %>" /></div>
+<% end %>
+
+<div id='galleryModal' class="modal hide fade mediaprev">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="modalHeader">Modal header</h3>
+    </div>
+    <div class="modal-body">
+    	<img src="" alt='image' />
+    </div>
+    <div class="modal-footer">
+        <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>

@@ -11,6 +11,5 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
     nil
   end
-
   helper_method :current_user
 end
