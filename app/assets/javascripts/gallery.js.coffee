@@ -36,10 +36,12 @@ $(document).ready -> (
 
   $('.imgprev').click ->
     $.getJSON("/gallery/" + $(this).attr('media'), (data) ->
-      $("#galleryModal .modal-header").html data.name
-      $("#galleryModal .modal-body img").attr 'src', data.data
-      $("p#desc").html data.description
-      $("#galleryModal .modal-footer a").attr 'href', data.data
+      $("#galleryModal #modalHeader").html data.media.name
+      $("#galleryModal .modal-body img").attr 'src', data.media.data
+      $("p#desc").html data.media.description
+      $("p#username>b").html data.user.name
+      $("p#postedAt>b").html data.media.created_at
+      $("#galleryModal .modal-footer a").attr 'href', data.media.data
       $("#galleryModal").modal('show')
     )
 )

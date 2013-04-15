@@ -4,6 +4,8 @@ gem 'rails', '3.2.12'
 
 gem 'bcrypt-ruby'
 
+gem 'will_paginate'
+
 gem 'cancan'
 
 # Bundle edge Rails instead:

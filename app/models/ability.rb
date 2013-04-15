@@ -6,7 +6,9 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.moderator?
-      can :update, User
+      can :update, User do |u|
+        user.prev >= u.prev
+      end
 
       can :create, Announce
 
@@ -22,6 +24,10 @@ class Ability
       
       can :read, Announce do |n|
         user.prev >= n.prev
+      end
+
+      can :update, User do |u|
+        user == u
       end
     else
       can :read, Announce do |n|

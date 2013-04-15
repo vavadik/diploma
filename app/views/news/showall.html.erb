@@ -2,7 +2,7 @@
 <% @news.each do |announce| %>
 	<% next if cannot? :read, announce %>
 	<h4>Title: <%= announce.title %></h4>
-	<p>Body: <%= announce.body %></p>
+	<p><b>Body:</b> <%= announce.body %></p>
 	Posted by: <%= announce.user.name %> <br>
 	For group: <%= announce.role %> <br>
 	At: <%= announce.created_at.localtime %>

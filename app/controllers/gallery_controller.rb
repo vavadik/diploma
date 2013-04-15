@@ -5,7 +5,7 @@ class GalleryController < ApplicationController
   end
 
   def showall
-    @media = Media.all
+    @media = Media.paginate page: params[:page]
   end
 
   def add
@@ -30,7 +30,11 @@ class GalleryController < ApplicationController
     @media = Media.find params[:id]
     respond_to do |format|
       format.html
-      format.json {render json: @media}
+      
+      format.json do
+        ret = {media: @media, user: @media.user}
+        render json: ret
+      end
     end
   end
 end
