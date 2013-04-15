@@ -25,4 +25,12 @@ class GalleryController < ApplicationController
       render action: "add"
     end
   end
+
+  def show
+    @media = Media.find params[:id]
+    respond_to do |format|
+      format.html
+      format.json {render json: @media}
+    end
+  end
 end

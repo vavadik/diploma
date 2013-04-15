@@ -1,5 +1,5 @@
 <% @media.each do |m| %>
-	<div class="imgprev pull-left"><img src="<%= m.data %>" alt="data" name="<%= m.name %>" /></div>
+	<div class="imgprev pull-left" media=<%= m.id %>><img src="<%= m.data %>" alt="data" /></div>
 <% end %>
 
 <div id='galleryModal' class="modal hide fade mediaprev">
@@ -9,8 +9,11 @@
     </div>
     <div class="modal-body">
     	<img src="" alt='image' />
+        <hr>
+        <p id="desc"></p>
     </div>
     <div class="modal-footer">
+        <a href="#" target="_blank" class="btn btn-success">Open image</a>
         <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </div>

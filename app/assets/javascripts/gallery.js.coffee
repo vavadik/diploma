@@ -34,8 +34,12 @@ $(document).ready -> (
   $('#saveMediaButton').click ->
     return !error
 
-  $('.imgprev img').click ->
-    $("#galleryModal .modal-header").html $(this).attr 'name'
-    $("#galleryModal .modal-body img").attr 'src', $(this).attr 'src'
-    $("#galleryModal").modal('show')
+  $('.imgprev').click ->
+    $.getJSON("/gallery/" + $(this).attr('media'), (data) ->
+      $("#galleryModal .modal-header").html data.name
+      $("#galleryModal .modal-body img").attr 'src', data.data
+      $("p#desc").html data.description
+      $("#galleryModal .modal-footer a").attr 'href', data.data
+      $("#galleryModal").modal('show')
+    )
 )
