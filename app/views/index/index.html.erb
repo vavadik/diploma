@@ -1,9 +1,11 @@
-<div class="row-fluid show-grid">
-	<div class = "span9">Index#index</div>
-	<div class = "span3">vadik</div>
+<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+	<div class="btn-group">
+        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+	</div>
 </div>
-<div class="btn-group">
-  <button class="btn">1</button>
-  <button class="btn">2</button>
-  <button class="btn">3</button>
+<div id="editor" contenteditable="true">
+	some text
 </div>
