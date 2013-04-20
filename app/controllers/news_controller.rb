@@ -21,7 +21,6 @@ class NewsController < ApplicationController
       redirect_to :root, notice: 'You can\'t create news!'
       return
     end
-    params[:announce]
     @announce = Announce.new params[:announce]
     @announce.user = current_user
     if @announce.save

@@ -2,6 +2,17 @@ class UsersController < ApplicationController
 
   def init
     @nav_current = :users
+    @leftside_links = [
+      {
+        header: true,
+        text: 'Users!'
+      },
+      {
+        text: 'LinkFromUsers',
+        name: :users,
+        link: '#',
+      },
+    ]
   end
 
   def show
@@ -51,19 +62,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if cannot? :update, User
+    @user = User.find params[:id]
+    @leftside_current = :my_acc if @user == current_user
+    if cannot? :update, @user
       redirect_to(:users, notice: 'Permission denied!')
       return
     end
-    @user = User.find params[:id]
   end
 
   def update
-    if cannot? :update, User
+    @user = User.find(params[:id])
+    if cannot? :update, @user
       redirect_to(:users, notice: 'Permission denied!')
       return
     end
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       redirect_to :user, notice: 'User was successfully updated.' 
     else

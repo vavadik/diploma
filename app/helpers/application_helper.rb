@@ -11,6 +11,11 @@ module ApplicationHelper
 				link: :users,
 				class: current == :users ? 'active' : ''
 			},
+			{
+				text: 'Gallery',
+				link: :gallery,
+				class: current == :gallery ? 'active' : ''
+			},
 		]
 	end
 end

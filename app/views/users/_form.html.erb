@@ -22,18 +22,18 @@
 	    </div>
 	</div>
 	<% if @user.id == current_user.id %>
-	<div class="control-group">
-	    <label class="control-label" for="inputPass">Password</label>
-	    <div class="controls">
-	    	<%= f.password_field :password, placeholder: 'Password', type: 'password', id: 'inputPass' %>
-	    </div>
-	</div>
-	<div class="control-group">
-	    <label class="control-label" for="confirmPass">Confirm</label>
-	    <div class="controls">
-	    	<%= f.password_field :password_confirmation, placeholder: 'Confirm', type: 'password', id: 'confirmPass' %>
-	    </div>
-	</div>
+		<div class="control-group">
+		    <label class="control-label" for="inputPass">Password</label>
+		    <div class="controls">
+		    	<%= f.password_field :password, placeholder: 'Password', type: 'password', id: 'inputPass' %>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="confirmPass">Confirm</label>
+		    <div class="controls">
+		    	<%= f.password_field :password_confirmation, placeholder: 'Confirm', type: 'password', id: 'confirmPass' %>
+		    </div>
+		</div>
 	<% end %>
 	<% if can? :prev, User %>
 		<div class="control-group">

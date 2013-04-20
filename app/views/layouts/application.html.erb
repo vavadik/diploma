@@ -3,7 +3,7 @@
 	<head>
 		<title>Diploma</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "application", controller_name %>
 		<%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
@@ -11,7 +11,7 @@
 		<%= render :partial => '/layouts/navbar', :object => @nav_current %>
 		<div class="row-fluid container">
 			<div class="leftside span3 well">
-		    	Left side
+		    	<%= render partial: 'layouts/leftsidebar', locals:{ add_links: @leftside_links, current: @leftside_current } %>
 		    </div>
 			<div class="content span9 well">
 				<%= yield %>

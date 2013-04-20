@@ -11,5 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require jquery.hotkeys.js
+//= require bootstrap.js
+//= require bootstrap-notify.js
+//= require bootstrap-wysiwyg.js
+//= require auth.js

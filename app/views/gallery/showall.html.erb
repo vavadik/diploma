@@ -1,0 +1,8 @@
+<% @media.each do |m| %>
+	<div class="imgprev pull-left" media=<%= m.id %>><img src="<%= m.data %>" alt="data" /></div>
+<% end %>
+<div class="clearfix"></div>
+<hr>
+<%= will_paginate @media, class: 'pagination pagination-centered', renderer: BootstrapPaginationHelper::LinkRenderer %> 
+
+<%= render 'modal_media_info' %>

@@ -1,0 +1,33 @@
+// Place all the styles related to the gallery controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.imgprev
+{
+	overflow: hidden;
+	margin: 0 5px 5px 0;
+	cursor: pointer;
+}
+
+.imgprev img
+{
+	height: 180px;
+}
+
+.mediaprev
+{
+	width: auto;
+	height: auto;
+}
+
+.mediaprev .modal-body
+{
+	max-width: 600px;
+	max-height: 600px;
+}
+
+.mediaprev .modal-body img
+{
+	width: auto;
+	height: auto;
+}

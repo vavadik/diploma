@@ -17,7 +17,9 @@
             <td><%= user.role %></td>
             <% if can?(:update, User) || can?(:destroy, User) %>
                 <td>
-                    <%= link_to raw('<i class="icon-edit"></i>'), {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %>
+                    <% if can?(:update, user) %>
+                        <%= link_to raw('<i class="icon-edit"></i>'), {:controller => :users, :id => user.id, :action => :edit}, :class => 'btn btn-mini' %>
+                    <% end %>
                     <% if can?(:destroy, User) %>
                         <%= link_to raw('<i class="icon-remove-circle"></i>'), user, :method => :delete, :confirm => "Sure?", :class => 'btn btn-mini' %>
                     <% end %>
