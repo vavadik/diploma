@@ -1,3 +1,4 @@
+<%= link_to 'Add', :gallery_add, class: 'btn btn-success' %>
 <% @media.each do |m| %>
 	<div class="imgprev pull-left" media=<%= m.id %>><img src="<%= m.data %>" alt="data" /></div>
 <% end %>
