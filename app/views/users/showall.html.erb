@@ -47,17 +47,3 @@
         <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </div>
-
-<% if can? :create, User %>
-<%= link_to 'Add user', :users_add, :class => 'btn btn-success' %>
-<button id="addUserButton" class="btn btn-success">Add user modal</button>
-<div id="addUserModal" class="modal hide fade">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 id="modalHeader">Add new user</h3>
-    </div>
-    <div class="modal-body">
-        <%= render '/auth/form_register' %>
-    </div>
-</div>
-<% end %>

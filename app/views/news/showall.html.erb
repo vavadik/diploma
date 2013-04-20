@@ -1,4 +1,3 @@
-<%= link_to 'Add', :news_add, class: 'btn btn-success' if can? :create, Announce %>
 <% @news.each do |announce| %>
 	<% next if cannot? :read, announce %>
 	<h4>Title: <%= announce.title %></h4>

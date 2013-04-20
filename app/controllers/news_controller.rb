@@ -2,6 +2,13 @@ class NewsController < ApplicationController
 
   def init
     @nav_current = :news
+    @leftside_links = [
+      {
+        header: true,
+        text: 'News'
+      }
+    ]
+    @leftside_links << {text: 'Add announce', name: :add_announce, link: :news_add} if can? :create, Announce
   end
 
   def showall
@@ -13,6 +20,7 @@ class NewsController < ApplicationController
       redirect_to :root, notice: 'You can\'t create news!'
       return
     end
+    @leftside_current = :add_announce
     @news = Announce.new
   end
 

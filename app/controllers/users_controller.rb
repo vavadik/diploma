@@ -5,14 +5,10 @@ class UsersController < ApplicationController
     @leftside_links = [
       {
         header: true,
-        text: 'Users!'
-      },
-      {
-        text: 'LinkFromUsers',
-        name: :users,
-        link: '#',
-      },
+        text: 'Users'
+      }
     ]
+    @leftside_links << {text: 'Add user', name: :add_user, link: :users_add} if can? :create, User
   end
 
   def show
@@ -24,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def add
+    @leftside_current = :add_user
     if cannot? :create, User
       redirect_to :root, notice: 'Permission denied!'
       return
