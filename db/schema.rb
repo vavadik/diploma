@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20130406133836) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.integer  "prev"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "prev"
   end
 
 end

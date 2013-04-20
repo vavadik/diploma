@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 	def create
-		redirect_to :root, notice: 'You are already logged in!' if current_user
+		if current_user
+			redirect_to :root, notice: 'You are already logged in!'
+			return
+		end
 	  user = User.find_by_email(params[:email])
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
