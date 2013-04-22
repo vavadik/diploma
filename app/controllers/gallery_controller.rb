@@ -2,6 +2,17 @@ class GalleryController < ApplicationController
 
   def init
     @nav_current = :gallery
+    @leftside_links = [
+      {
+        header: true,
+        text: 'Gallery'
+      },
+      {
+        text: 'Add',
+        name: :gallery_add,
+        link: :gallery_add,
+      },
+    ]
   end
 
   def showall
@@ -9,6 +20,7 @@ class GalleryController < ApplicationController
   end
 
   def add
+    @leftside_current = :gallery_add;
     @types = {}
     Mediatype.all.each do |mt|
       @types[mt.name] = mt.id

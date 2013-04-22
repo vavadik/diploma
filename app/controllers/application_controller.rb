@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
         name: :my_acc
       },
     ]
-    common_links + account_management + add_links
+    add_links + common_links + account_management
   end
   helper_method :leftside_bar
 end
