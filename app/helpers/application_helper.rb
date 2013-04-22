@@ -16,6 +16,11 @@ module ApplicationHelper
 				link: :gallery,
 				class: current == :gallery ? 'active' : ''
 			},
+			{
+				text: 'Chat',
+				link: :chat,
+				class: current == :chat ? 'active' : ''
+			},
 		]
 	end
 end

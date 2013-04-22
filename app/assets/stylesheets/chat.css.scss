@@ -1,0 +1,10 @@
+// Place all the styles related to the chat controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#chatWindow
+{
+	height: 400px;
+	min-height: 400px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}

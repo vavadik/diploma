@@ -1,4 +1,10 @@
 Diploma::Application.routes.draw do
+
+  get 'chat' => 'chat#index'
+  post 'chat/create' => 'chat#create'
+  get 'chat/showlast'
+  get 'chat/update/:from' => 'chat#update'
+  get 'chat/:id' => 'chat#show'
   
   get "gallery" => 'gallery#showall'
   post 'gallery' => 'gallery#create'

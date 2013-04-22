@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :announces, dependent: :destroy
   has_many :medias, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   has_secure_password
   validates :name, :presence => true, :length => { :maximum => 100 }

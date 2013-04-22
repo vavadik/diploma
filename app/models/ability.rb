@@ -19,6 +19,8 @@ class Ability
       can :manage, Announce do |n|
         user == n.user
       end
+
+      can :use, Chat
     elsif user.user?
       can :read, User
       
@@ -29,6 +31,8 @@ class Ability
       can :update, User do |u|
         user == u
       end
+
+      can :use, Chat
     else
       can :read, Announce do |n|
         user.prev >= n.prev
