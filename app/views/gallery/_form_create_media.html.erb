@@ -37,12 +37,15 @@
 
 	<div class="control-group">
 		<label for="imagePrev" class="control-label">Preview</label>
-		<div class="controls span4">
-			<div id="imagePrev">
-				<div class="thumbnail hidden">
+		<div class="controls">
+			<div id="imagePrev" class="span5">
+				<div class="thumbnail hidden" id="imageContainer">
 			    	<img src='' alt="loading...">
 			    </div>
-			    <p class='alert' id='noImageAlert'>Invalid image url</p>
+			    <div class="thumbnail hidden" id="videoContainer">
+			    	<iframe width="560" height="315" frameborder="0" allowfullscreen src=""></iframe>
+			    </div>
+			    <div class='alert' id='noImageAlert'>Invalid media url</div>
 			</div>
 		</div>
 	</div>

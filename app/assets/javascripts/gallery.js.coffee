@@ -6,28 +6,45 @@ interval = (ms, func) -> setInterval func, ms
 $(document).ready -> (
   input = $("#inputData")
   unless input.val() is undefined 
-    image = $("#imagePrev img")
-    imageContainer = $("#imagePrev div.thumbnail")
+    image = $("#imageContainer img")
+    mediaContainer = $("#imageContainer")
+    videoFrame = $("#videoContainer iframe")
+    videoContainer = $("#videoContainer")
     val = 'http://' + input.val().replace('http://', '').replace('https://', '')
     error = true
     interval 1000, ->
       val = 'http://' + input.val().replace('http://', '').replace('https://', '')
-      image.attr 'src', '' if val is 'http://'
-      if image.attr('src') isnt val
-        image.attr "src", val
+      if val.indexOf('http://youtube.com') != -1 || val.indexOf('http://www.youtube.com') != -1
+        param = 'http://www.youtube.com/embed/' + val.split('v=')[1].split('&')[0]
+        if videoFrame.attr('src') isnt param
+          videoFrame.attr('src', param)
+      else if val.indexOf('http://youtu.be/') != -1
+        param = 'http://www.youtube.com/embed/' + val.split('http://youtu.be/')[1]
+        if videoFrame.attr('src') isnt param
+          videoFrame.attr('src', param)
+      else
+        image.attr 'src', '' if val is 'http://'
+        if image.attr('src') isnt val
+          image.attr "src", val
+
+    videoFrame.load ->
+      error = false
+      $('#saveMediaButton').removeClass 'disabled'
+      videoContainer.removeClass 'hidden'
+      $('#noImageAlert').addClass 'hidden'
 
     image.error -> (
       error = true
       image.attr "src", ''
       $('#saveMediaButton').addClass 'disabled'
-      imageContainer.addClass 'hidden'
+      mediaContainer.addClass 'hidden'
       $('#noImageAlert').removeClass 'hidden'
     )
 
     image.load -> 
       error = false
       $('#saveMediaButton').removeClass 'disabled'
-      imageContainer.removeClass 'hidden'
+      mediaContainer.removeClass 'hidden'
       $('#noImageAlert').addClass 'hidden'
   
 
