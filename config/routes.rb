@@ -6,10 +6,14 @@ Diploma::Application.routes.draw do
   get 'chat/update/:from' => 'chat#update'
   get 'chat/:id' => 'chat#show'
   
-  get "gallery" => 'gallery#showall'
-  post 'gallery' => 'gallery#create'
   get 'gallery/add'
+  get "gallery" => 'gallery#showall'
+  get "gallery/user/(:user)" => 'gallery#showall'
+  post 'gallery' => 'gallery#create'
+  get 'gallery/search'
+  post 'gallery/search' => 'gallery#find'
   get 'gallery/:id' => 'gallery#show'
+  delete 'gallery/:id' => 'gallery#delete'
 
   get 'news' => 'news#showall'
   get 'news/add'

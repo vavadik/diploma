@@ -1,0 +1,44 @@
+<%= form_tag nil, class: 'form-horizontal' do %>
+	<div class="control-group">
+	    <label class="control-label" for="inputTitle">Search by title:</label>
+	    <div class="controls">
+	    	<%= text_field_tag 'title', nil, placeholder: 'Title', id: 'inputTitle' %>
+	    	<%= submit_tag 'Search', class: 'btn btn-success' %>
+	    </div>
+	</div>
+<% end %>
+
+<%= form_tag nil, class: 'form-horizontal' do %>
+	<div class="control-group">
+	    <label class="control-label" for="inputTags">Search by tags:</label>
+	    <div class="controls">
+	    	<%= text_field_tag 'tags', nil, placeholder: "Divide with ';'", id: 'inputTags' %>
+	    	<%= submit_tag 'Search', class: 'btn btn-success' %>
+	    </div>
+	</div>
+<% end %>
+
+<%= form_tag nil, class: 'form-horizontal' do %>
+	<div class="control-group">
+	    <label class="control-label" for="inputData">Search by image:</label>
+	    <div class="controls">
+	    	<%= text_field_tag 'image', nil, placeholder: "Enter image url", id: 'inputData' %>
+	    	<%= submit_tag 'Search', class: 'btn btn-success' %>
+	    </div>
+	</div>
+
+	<div class="control-group">
+		<label for="imagePrev" class="control-label">Preview</label>
+		<div class="controls">
+			<div id="imagePrev" class="span5">
+				<div class="thumbnail hidden" id="imageContainer">
+			    	<img src='' alt="loading...">
+			    </div>
+			    <div class="thumbnail hidden" id="videoContainer">
+			    	<iframe width="560" height="315" frameborder="0" allowfullscreen src=""></iframe>
+			    </div>
+			    <div class='alert' id='noImageAlert'>Invalid media url</div>
+			</div>
+		</div>
+	</div>
+<% end %>

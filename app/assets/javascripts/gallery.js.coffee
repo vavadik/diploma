@@ -55,10 +55,15 @@ $(document).ready -> (
     $.getJSON("/gallery/" + $(this).attr('media'), (data) ->
       $("#galleryModal #modalHeader").html data.media.name
       $("#galleryModal .modal-body img").attr 'src', data.media.data
+      $("#galleryModal a#removeImageButton").attr('href', 'gallery/' + data.media.id)
+      if data.own is true
+        $("#galleryModal a#removeImageButton").removeClass 'hide'
+      else
+        $("#galleryModal a#removeImageButton").addClass 'hide'
       $("p#desc").html data.media.description
       $("p#username>b").html data.user.name
       $("p#postedAt>b").html data.media.created_at
-      $("#galleryModal .modal-footer a").attr 'href', data.media.data
+      $("#galleryModal a#openImageButton").attr 'href', data.media.data
       $("#galleryModal").modal('show')
     )
 )

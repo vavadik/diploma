@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
+
     elsif user.moderator?
       can :update, User do |u|
         user.prev >= u.prev
@@ -21,6 +22,9 @@ class Ability
       end
 
       can :use, Chat
+
+      can :manage, Media
+
     elsif user.user?
       can :read, User
       
@@ -33,6 +37,11 @@ class Ability
       end
 
       can :use, Chat
+
+      can :manage, Media do |m|
+        m.user == user
+      end
+      
     else
       can :read, Announce do |n|
         user.prev >= n.prev

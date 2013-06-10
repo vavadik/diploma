@@ -47,6 +47,11 @@ class ApplicationController < ActionController::Base
         link: {controller: :users, id: current_user.id, action: :edit},
         name: :my_acc
       },
+      {
+        text: 'My gallery',
+        link: {controller: :gallery, user: current_user.id, action: :showall},
+        name: :my_acc
+      },
     ]
     add_links + common_links + account_management
   end

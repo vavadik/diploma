@@ -11,7 +11,8 @@
         At: <p id="postedAt"><b></b></p>
     </div>
     <div class="modal-footer">
-        <a href="#" target="_blank" class="btn btn-success">Open image</a>
+        <%= link_to 'Remove', 'gallery/1', method: :delete, confirm: "Sure?", class: 'btn btn-success hide', id: 'removeImageButton' %>
+        <a href="#" id="openImageButton" target="_blank" class="btn btn-success">Open image</a>
         <button class='btn' data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </div>

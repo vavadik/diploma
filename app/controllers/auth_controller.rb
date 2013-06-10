@@ -8,7 +8,7 @@ class AuthController < ApplicationController
 
   def register
     if cannot?(:create, User) && current_user
-      redirect_to :root, notice: 'Permission denied11!'
+      redirect_to :root, notice: 'Permission denied!'
       return
     end
   	@user = User.new

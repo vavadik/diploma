@@ -12,15 +12,25 @@ class GalleryController < ApplicationController
         name: :gallery_add,
         link: :gallery_add,
       },
+      {
+        text: 'Search',
+        name: :gallery_search,
+        link: :gallery_search,
+      },
     ]
   end
 
   def showall
-    @media = Media.paginate page: params[:page]
+    if params[:user]
+      user = User.find params[:user]
+      @media = user.medias.paginate page: params[:page]
+    else
+      @media = Media.paginate page: params[:page]
+    end
   end
 
   def add
-    @leftside_current = :gallery_add;
+    @leftside_current = :gallery_add
     @types = {}
     Mediatype.all.each do |mt|
       @types[mt.name] = mt.id
@@ -44,9 +54,34 @@ class GalleryController < ApplicationController
       format.html
       
       format.json do
-        ret = {media: @media, user: @media.user}
+        ret = {media: @media, user: @media.user, own: can?(:destroy, @media)}
         render json: ret
       end
     end
+  end
+
+  def delete
+    @media = Media.find params[:id]
+    if cannot? :destroy, @media
+      redirect_to :gallery, notice: "You can't delete this media!"
+      return
+    end
+    name = @media.name
+    @media.destroy
+    redirect_to :gallery, notice: "#{name} removed!"
+  end
+
+  def search
+    @leftside_current = :gallery_search
+  end
+
+  def find
+    title = params[:title]
+    tags = params[:tags]
+    image = params[:image]
+
+    @media = Media.where('name like ?', "%#{title}%")
+    @skip_pagination = true
+    render 'showall'
   end
 end

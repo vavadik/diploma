@@ -3,6 +3,6 @@
 <% end %>
 <div class="clearfix"></div>
 <hr>
-<%= will_paginate @media, class: 'pagination pagination-centered', renderer: BootstrapPaginationHelper::LinkRenderer %> 
+<%= will_paginate @media, class: 'pagination pagination-centered', renderer: BootstrapPaginationHelper::LinkRenderer unless @skip_pagination %> 
 
 <%= render 'modal_media_info' %>
